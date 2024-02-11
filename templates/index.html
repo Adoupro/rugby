@@ -1,3 +1,21 @@
-Hello World
+{% load static %}
+<html>
+    <head>
+        <title>mon site</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
 
-{{ball}}
+    <body>
+        ukagdiudg
+        <img src="{% static 'images/test.png' %}" alt="">
+    </body>
+    Hello World
+    {{ball}}
+
+    {% for my_player in players %}
+
+    {{my_player.last_name}}
+
+    {% endfor %}
+
+</html>
