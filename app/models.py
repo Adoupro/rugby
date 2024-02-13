@@ -1,20 +1,18 @@
 from django.db import models
 
 # Create your models here.
-class Player(models.Model):
+
+
+
+class ODS_Licence(models.Model):
     """_summary_
 
     Args:
         models (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    
-    def __str__(self) -> str:
-        return f"{self.last_name} - {self.first_name}"
-
-
-class ODS_Player(models.Model):
     code_commune = models.CharField(max_length=500)
     commune = models.CharField(max_length=500)
     code_qpv = models.CharField(max_length=500)
@@ -62,6 +60,37 @@ class ODS_Player(models.Model):
     h_nr = models.CharField(max_length=500)
     nr_nr = models.CharField(max_length=500)
     total = models.CharField(max_length=500)
+    file_name = models.CharField(max_length=500)
+    creation_date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.commune}-{self.nom_qpv}-{self.federation}"
+
+
+
+class ODS_Club(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    code_commune = models.CharField(max_length=500)
+    commune = models.CharField(max_length=500)
+    code_qpv = models.CharField(max_length=500)
+    nom_qpv = models.CharField(max_length=500)
+    departement = models.CharField(max_length=500)
+    region = models.CharField(max_length=500)
+    statut_geo = models.CharField(max_length=500)
+    code = models.CharField(max_length=500)
+    federation = models.CharField(max_length=500)
+    clubs = models.CharField(max_length=500)
+    epa = models.CharField(max_length=500)
+    total = models.CharField(max_length=500)
+    file_name = models.CharField(max_length=500)
+    creation_date = models.DateField(auto_now=True)
 
     def __str__(self):
         return f"{self.commune}-{self.nom_qpv}-{self.federation}"

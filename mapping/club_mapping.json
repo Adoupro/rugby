@@ -1,0 +1,14 @@
+{
+    "Code Commune": "code_commune",
+    "Commune": "commune",
+    "Code QPV": "code_qpv",
+    "Nom QPV": "nom_qpv",
+    "Département": "departement",
+    "Région": "region",
+    "Statut géo": "statut_geo",
+    "Code": "code",
+    "Fédération": "federation",
+    "Clubs": "clubs",
+    "EPA": "epa",
+    "Total": "total"
+}

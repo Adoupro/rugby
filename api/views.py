@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from app.models import Player
-from app.models import ODS_Player
-from api.serializers import ODS_Player_Serializer
+from app.models import ODS_Licence
+from api.serializers import ODS_Licence_Serializer
 import json
 
 from rest_framework.response import Response
@@ -22,14 +21,14 @@ class API_Datawarehouse(APIView):
         
         if 'code_commune' in request.GET:
             code_commune = request.GET['code_commune']
-            data = ODS_Player.objects.filter(code_commune=code_commune)
+            data = ODS_Licence.objects.filter(code_commune=code_commune)
             count = data.count()
         else:
-            data = ODS_Player.objects.all()
+            data = ODS_Licence.objects.all()
             count = data.count()
             data = data[:30]
         
-        serializer = ODS_Player_Serializer(data=data, many=True)
+        serializer = ODS_Licence_Serializer(data=data, many=True)
         serializer.is_valid()
         
         data = serializer.data
@@ -68,9 +67,9 @@ class API_Datawarehouse(APIView):
     
     def delete(self, request, pk=None):
         
-        players = Player.objects.all()
-        count = players.count()
-        players.delete()
+        licences = ODS_Licence.objects.all()
+        count = licences.count()
+        licences.delete()
         
         result = {
             'message': f"{count} lignes ont été supprimées",

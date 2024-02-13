@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from app.models import ODS_Player
+from app.models import ODS_Licence
 
-class ODS_Player_Serializer(serializers.ModelSerializer):
+class ODS_Licence_Serializer(serializers.ModelSerializer):
     class Meta:
-        model = ODS_Player
+        model = ODS_Licence
         fields = '__all__'
