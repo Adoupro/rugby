@@ -18,7 +18,10 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 DATA_DIR = os.path.join(BASE_DIR, 'data')
+<<<<<<< HEAD
 MAPPING_DIR = os.path.join(BASE_DIR, 'mapping')
+=======
+>>>>>>> 8587be5b023a907496125a2d01ba360ffda11eb6
 
 
 # Quick-start development settings - unsuitable for production
