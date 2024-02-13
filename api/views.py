@@ -48,7 +48,7 @@ class API_Datawarehouse(APIView):
             'data':[]
         }
         
-        return Response(datresulta, status=status.HTTP_200_OK)
+        return Response(result, status=status.HTTP_200_OK)
 
     def put(self, request, pk=None):
         result = {
