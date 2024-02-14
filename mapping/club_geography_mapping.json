@@ -1,0 +1,9 @@
+{
+    "code_commune": "code_commune",
+    "commune": "commune",
+    "code_qpv": "code_qpv",
+    "nom_qpv": "qpv",
+    "departement": "code_departement",
+    "region": "region",
+    "statut_geo": "statut"
+}

@@ -11,6 +11,7 @@ column_name_mapping = json.loads(column_name_mapping)
  
 def run():
     
+    ODS_Licence.objects.all().delete()
     file_name = f"lic-data-2021.csv"
     data = pd.read_csv(f"{DATA_DIR}/{file_name}", sep=';', dtype=str)
     data['file_name'] = file_name

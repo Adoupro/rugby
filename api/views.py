@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from app.models import ODS_Licence
+from app.models import D_Geography
 from api.serializers import ODS_Licence_Serializer
 import json
 
@@ -67,9 +68,9 @@ class API_Datawarehouse(APIView):
     
     def delete(self, request, pk=None):
         
-        licences = ODS_Licence.objects.all()
-        count = licences.count()
-        licences.delete()
+        rows = D_Geography.objects.all()
+        count = rows.count()
+        rows.delete()
         
         result = {
             'message': f"{count} lignes ont été supprimées",

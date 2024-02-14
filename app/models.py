@@ -67,7 +67,6 @@ class ODS_Licence(models.Model):
         return f"{self.commune}-{self.nom_qpv}-{self.federation}"
 
 
-
 class ODS_Club(models.Model):
     """_summary_
 
@@ -94,3 +93,123 @@ class ODS_Club(models.Model):
 
     def __str__(self):
         return f"{self.commune}-{self.nom_qpv}-{self.federation}"
+
+  
+class D_Sexe(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=1, primary_key=True)
+    label = models.CharField(max_length=10)
+    
+    def __str__(self):
+        return f""
+
+
+class D_Age_Group(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=15, primary_key=True)
+    label = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return f""
+
+
+class D_Federation(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=3, primary_key=True)
+    label = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return f""
+
+
+class D_Club_Type(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=3, primary_key=True)
+    label = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return f""
+
+
+class D_Date(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    date = models.DateField(primary_key=True)
+    year = models.IntegerField()
+
+    def __str__(self):
+        return f""
+
+
+class D_Geography(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=14, primary_key=True)
+    code_commune = models.CharField(max_length=5)
+    commune = models.CharField(max_length=150)
+    code_qpv = models.CharField(max_length=8)
+    qpv = models.CharField(max_length=150)
+    code_departement = models.CharField(max_length=3)
+    departement = models.CharField(max_length=150)
+    region = models.CharField(max_length=100)
+    statut = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.commune} - {self.qpv}"
+
+
+class F_Licence(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=45, primary_key=True)
+    nombre = models.IntegerField()
+    federation_fk = models.ForeignKey(D_Federation, on_delete=models.CASCADE)
+    sexe_fk = models.ForeignKey(D_Sexe, on_delete=models.CASCADE)
+    age_group_fk = models.ForeignKey(D_Age_Group, on_delete=models.CASCADE)
+    date_fk = models.ForeignKey(D_Date, on_delete=models.CASCADE)
+    geography_fk = models.ForeignKey(D_Geography, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f""
+
+
+class F_Club(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+    """
+    code = models.CharField(max_length=30, primary_key=True)
+    nombre = models.IntegerField()
+    federation_fk = models.ForeignKey(D_Federation, on_delete=models.CASCADE)
+    club_type_fk = models.ForeignKey(D_Club_Type, on_delete=models.CASCADE)
+    date_fk = models.ForeignKey(D_Date, on_delete=models.CASCADE)
+    geography_fk = models.ForeignKey(D_Geography, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f""
