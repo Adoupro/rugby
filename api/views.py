@@ -35,7 +35,6 @@ class API_Operational_Data_Store(APIView):
         else:
             data = ODS_Licence.objects.all()
             count = data.count()
-            data = data[:30]
         
         serializer = ODS_Licence_Serializer(data=data, many=True)
         serializer.is_valid()
@@ -67,11 +66,9 @@ class API_Datawarehouse(APIView):
             table_name = request.GET['table_name']
             data = eval(table_name).objects.all()
             count = data.count()
-            #data = data[:1000]
         else:
             data = F_Club.objects.all()
             count = data.count()
-            data = F_Club[:1000]
         
         serializer = eval(f"{table_name}_Serializer")(data=data, many=True)
         serializer.is_valid()
