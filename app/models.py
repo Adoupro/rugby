@@ -64,7 +64,7 @@ class ODS_Licence(models.Model):
     creation_date = models.DateField(auto_now=True)
 
     def __str__(self):
-        return f"{self.commune}-{self.nom_qpv}-{self.federation}"
+        return f"{self.commune} - {self.nom_qpv} - {self.federation}"
 
 
 class ODS_Club(models.Model):
@@ -92,7 +92,7 @@ class ODS_Club(models.Model):
     creation_date = models.DateField(auto_now=True)
 
     def __str__(self):
-        return f"{self.commune}-{self.nom_qpv}-{self.federation}"
+        return f"{self.commune} - {self.nom_qpv} - {self.federation}"
 
   
 class D_Sexe(models.Model):
@@ -105,7 +105,7 @@ class D_Sexe(models.Model):
     label = models.CharField(max_length=10)
     
     def __str__(self):
-        return f""
+        return f"{self.label}"
 
 
 class D_Age_Group(models.Model):
@@ -118,7 +118,7 @@ class D_Age_Group(models.Model):
     label = models.CharField(max_length=30)
     
     def __str__(self):
-        return f""
+        return f"{self.label}"
 
 
 class D_Federation(models.Model):
@@ -131,7 +131,7 @@ class D_Federation(models.Model):
     label = models.CharField(max_length=200)
     
     def __str__(self):
-        return f""
+        return f"{self.code} - {self.label}"
 
 
 class D_Club_Type(models.Model):
@@ -144,7 +144,7 @@ class D_Club_Type(models.Model):
     label = models.CharField(max_length=100)
     
     def __str__(self):
-        return f""
+        return f"{self.label}"
 
 
 class D_Date(models.Model):
@@ -157,7 +157,7 @@ class D_Date(models.Model):
     year = models.IntegerField()
 
     def __str__(self):
-        return f""
+        return f"{self.year}"
 
 
 class D_Geography(models.Model):
@@ -195,7 +195,7 @@ class F_Licence(models.Model):
     geography_fk = models.ForeignKey(D_Geography, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f""
+        return f"{self.federation_fk} - {self.sexe_fk} - {self.age_group_fk} - {self.geography_fk}"
 
 
 class F_Club(models.Model):
@@ -212,4 +212,4 @@ class F_Club(models.Model):
     geography_fk = models.ForeignKey(D_Geography, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f""
+        return f"{self.federation_fk} - {self.club_type_fk} - {self.geography_fk}"

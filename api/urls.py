@@ -1,6 +1,7 @@
 from django.urls import path
-from api.views import API_Datawarehouse
+from api.views import API_Operational_Data_Store, API_Datawarehouse
 
 urlpatterns = [
-    path('', API_Datawarehouse.as_view())
+    path('ods/', API_Operational_Data_Store.as_view()),
+    path('dwh/', API_Datawarehouse.as_view())
 ]
